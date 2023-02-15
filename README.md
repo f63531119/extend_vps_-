@@ -131,6 +131,7 @@ docker run \
     - 分享一个来自 [wx5ecc8c432b706](https://blog.51cto.com/u_14825502) 的密钥和URl</br>
     - `IDkey：nblnZuv5E5A_wo5j9eYC-nQVWHKyY5HxJXuEPnNpJgrr`</br>
     - `URL：https://api.us-south.speech-to-text.watson.cloud.ibm.com/instances/7e2f69e7-a5e8-4d56-91ae-f4dc7b4a1f0b`
+- [x] **`Azure`** 每月5小时的免费额度。但是目前我没调通识别mp3，暂且先用基于ffmpeg的模块pydub先将mp3转化为wav，然后再让Azure识别wav。windows上调试需要将二进制ffmpeg添加到环境变量path中；linux上调试需要安装依赖，命令为`sudo apt-get install ffmpeg libavcodec-extra`
 - [x] ~~**`Xfyun`**~~ 每月 500 次免费音频流，注意是语音听写API，语音转写额度太少</br><a id='001' />
     - 🚫 `Github Action` 去除讯飞语音支持，偶尔能用简直莫名其妙，可能服务器环境不同导致，和 `Docker` 一样原因</br>
     - ❎ `Docker Build` 镜像不含讯飞，因为加讯飞构建会导致各种依赖冲突和系统依赖包</br>

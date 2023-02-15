@@ -20,7 +20,9 @@ import urllib
 import telepot
 import ibmAPI
 import tencentAPI
+import azureAPI
 import json
+from pydub import AudioSegment
 from urllib.request import urlopen, Request
 from bs4 import BeautifulSoup
 from aip import AipSpeech
@@ -54,7 +56,7 @@ asr_baidu_app_id = config['asr_baidu']['app_id']
 asr_baidu_api_key = config['asr_baidu']['api_key']
 asr_baidu_secret_key = config['asr_baidu']['secret_key']
 asr_azure_key = config['asr_azure']['key']
-asr_azure_url = config['asr_azure']['url']
+asr_azure_region = config['asr_azure']['region']
 
 twoCaptcha_api_key = config['twoCaptcha_api_key']
 
@@ -492,6 +494,13 @@ def mp3_change_pcm(audioFile):
     ff.run()
     return outpath
 
+def transform_mp3_to_wav(mp3Path):
+    sound = AudioSegment.from_mp3(mp3Path)
+    wavPath = os.getcwd() + '/audio.wav' if '/' in os.getcwd() else os.getcwd() + '\\audio.wav'
+    sound.export(wavPath, format="wav")
+    return wavPath
+    
+
 def audioToText(audioFile, url):
     ASR_CHOICE = None
     try:
@@ -515,7 +524,11 @@ def audioToText(audioFile, url):
             SECRET_ID = asr_tencent_secret_id
             SECRET_KEY = asr_tencent_secret_key
             return tencentAPI.asr(SECRET_ID, SECRET_KEY, url)
-    
+        
+        elif ASR_CHOICE == 'AZURE':
+            wavPath = transform_mp3_to_wav(audioFile)
+            delay()
+            return azureAPI.asr(asr_azure_key, asr_azure_region, wavPath)
         else :
             logger.warn("ASR_CHOICE setup error, skip ASR")
             return None

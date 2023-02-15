@@ -11,7 +11,7 @@
     "password": "RFqDKRXheRrqDPz0if1oyeVkRTbllRTl",
     "port": 18806
   },
-  "asr_choice": "TENCENT",
+  "asr_choice": "AZURE",
   "asr_tencent": {
     "secret_id": "AKIDnQp0zCCxUmrhJgqmTwWt1wd5JIH9qLvJ",
     "secret_key": "EF2by72nJadS3PXSDk4A3iAOO9gyPcbv"
@@ -27,7 +27,7 @@
   },
   "asr_azure": {
     "key": "b3ac840c1b24432a897c0f648078ceb8",
-    "url": "https://eastasia.api.cognitive.microsoft.com/sts/v1.0/issuetoken"
+    "region": "eastasia"
   },
   "twoCaptcha_api_key": "8349b2ce253f6ddde3805089a26daafa"
 }
