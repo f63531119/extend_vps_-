@@ -547,11 +547,12 @@ def twoCaptcha(page):
 def reCAPTCHA(page):
     openLoginUrl(page)
     try:
-        ###################################################
-        # 获取id="recaptcha-anchor"的span，判断其是否有recaptcha-checkbox-checked类样式，如果有，直接return True
-        checkbox_element = page.query_selector('#recaptcha-anchor')
-        if 'recaptcha-checkbox-checked' in checkbox_element.get_attribute('class'):
+        # 获取iframe中id="recaptcha-anchor"的span，判断其是否有recaptcha-checkbox-checked类样式，如果有，直接return True
+        iframe_anchor = page.frame_locator("xpath=//iframe[starts-with(@src,'https://www.recaptcha.net/recaptcha/api2/anchor')]")
+        #print("我将要打印#recaptcha-anchor--class属性:", iframe_anchor.locator('#recaptcha-anchor').get_attribute('class', timeout = 10000))
+        if 'recaptcha-checkbox-checked' in iframe_anchor.locator('#recaptcha-anchor').get_attribute('class', timeout = 10000):
             return True
+
         iframe = page.frame_locator("xpath=//iframe[starts-with(@src,'https://www.recaptcha.net/recaptcha/api2/bframe')]")
         iframe.locator("#recaptcha-audio-button").click(timeout=10000)
         # get the mp3 audio file  http协议的网络资源
@@ -608,11 +609,12 @@ def twoCaptcha2(page):
 
 def reCAPTCHA2(page):
     try:
-        ###################################################
-        # 获取id="recaptcha-anchor"的span，判断其是否有recaptcha-checkbox-checked类样式，如果有，直接return True
-        checkbox_element = page.query_selector('#recaptcha-anchor')
-        if 'recaptcha-checkbox-checked' in checkbox_element.get_attribute('class'):
+        # 获取iframe中id="recaptcha-anchor"的span，判断其是否有recaptcha-checkbox-checked类样式，如果有，直接return True
+        iframe_anchor = page.frame_locator("xpath=//iframe[starts-with(@src,'https://www.recaptcha.net/recaptcha/api2/anchor')]")
+        #print("我将要打印#recaptcha-anchor--class属性:", iframe_anchor.locator('#recaptcha-anchor').get_attribute('class', timeout = 10000))
+        if 'recaptcha-checkbox-checked' in iframe_anchor.locator('#recaptcha-anchor').get_attribute('class', timeout = 10000):
             return True
+        
         iframe = page.frame_locator("xpath=//iframe[starts-with(@src,'https://www.recaptcha.net/recaptcha/api2/bframe')]")
         iframe.locator("#recaptcha-audio-button").click(timeout=10000)
         # get the mp3 audio file  http协议的网络资源
