@@ -1,0 +1,36 @@
+2023-02-16 03:02:46,722-Extend-INFO-load woiden.id
+2023-02-16 03:02:59,163-Extend-INFO-clear adsbygoogle
+2023-02-16 03:02:59,285-Extend-INFO-fill username
+2023-02-16 03:02:59,577-Extend-INFO-fill password
+2023-02-16 03:03:00,655-Extend-ERROR-'NoneType' object has no attribute 'get_attribute'
+2023-02-16 03:03:00,655-Extend-WARNING-Possibly blocked by google. Change IP,Use Proxy method for requests
+2023-02-16 03:03:00,656-Extend-INFO-Audio verify fail,try picture fuck reCAPTCHA
+2023-02-16 03:03:00,656-Extend-INFO-load woiden.id
+2023-02-16 03:03:04,881-Extend-INFO-clear adsbygoogle
+2023-02-16 03:03:05,027-Extend-INFO-fill username
+2023-02-16 03:03:05,625-Extend-INFO-fill password
+2023-02-16 03:04:09,626-Extend-INFO-recaptcha_res{'captchaId': '72852136817', 'code': '03AFY_a8VGUzXFtnsUY48EvQXfjVlJtWQsWR-SoRqRMvpqfviQPJtICGzaJaob0n6q76f7o4u3oQS3SOk8Tci0Z2rBKXYVpyJBajuBuAjXuESOViMrWwjJTv-XFUGQHnct9ElKCIKXX8GNq2qC3O57GfOq-1x7JSJaMLJdYQBygsV82UHEssL-uPPevx6NdzgosZmpmbKbO17KzyNOD22BibiVBN0K_obJDsvh9aKyiJn8lmvu3AqClu9GArg3n_peBNzX52_sTKIpd7soRETvRjKDyq7gviFzN75scauz-M-1hgeuGvMYoB7sL-zU3faNfu8S5XeYAlzQZ7K45Sv44OeOcpY40QqDz2K0-7IjILtv1knltjCXYoTmboSLNDx0EH-DzR9FQUI15RvGN6KQWkVsOlqRHThCA5PKltpqXmuclNYxsl7b9WKTPwJtddwX0ti7hCLimgrMT1oQ1nJJUAWbHgrF0W1P_LTLVZW06IB1GZlnpRmdqMcBl3xgcDnmtH_HG2MsmpZn6olaJhzUX0B3nWEmIwCoJNcWPvmHCSeIShkl1jeiAzK2y8Ic45UyWRDQxANZKBL-KzKFtmvT8w2YEH1wnNJhxA'}
+2023-02-16 03:04:09,638-Extend-INFO-reCAPTCHA picture done
+2023-02-16 03:04:09,665-Extend-INFO-click login
+2023-02-16 03:04:20,181-Extend-INFO-woiden.idcheck info
+2023-02-16 03:04:28,440-Extend-INFO-click Extend VPS
+2023-02-16 03:04:38,363-Extend-INFO-clear adsbygoogle
+2023-02-16 03:04:38,395-Extend-INFO-recaptchaV3 token is none
+2023-02-16 03:04:38,397-Extend-INFO-fill web address
+2023-02-16 03:04:38,475-Extend-INFO-do CAPTCHA
+2023-02-16 03:04:38,611-Extend-INFO-renewal verify code:2+9=11
+2023-02-16 03:04:40,678-Extend-INFO-click agreement
+2023-02-16 03:04:42,928-Extend-INFO-click Renew VPS
+2023-02-16 03:04:48,706-Extend-INFO-clear adsbygoogle
+2023-02-16 03:05:11,543-Extend-INFO-renewal verify code:5+2=7
+2023-02-16 03:05:17,785-Extend-INFO-hax_bot_code页面-开始第1次尝试
+2023-02-16 03:05:17,790-Extend-ERROR-'NoneType' object has no attribute 'get_attribute'
+2023-02-16 03:05:17,790-Extend-WARNING-Possibly blocked by google. Change IP,Use Proxy method for requests
+2023-02-16 03:05:17,790-Extend-INFO-Audio verify fail,try picture fuck reCAPTCHA
+2023-02-16 03:05:37,206-Extend-INFO-renewal verify code:7+5=12
+2023-02-16 03:06:29,120-Extend-INFO-recaptcha_res{'captchaId': '72852154301', 'code': '03AFY_a8Wp9P-spSdIb1EDn6FLJ0y_31VlHFHgpUCo-3cqxh4vhYQxNrqMg7oKsMnr0JCOuUZWLyjsKqCkayp6s6OpHTn63mN17-c9yYRkIuW-3XMh9y_d-7thQ1QE5aDtYE8ciCNcLubxHXZ8aoJs3humB3k42YLrqk2grobGLj28TomYajL9B-vmCNYzkb1G9HqwKNw-2f9CaWVWq9yEBTdoUqC57-vwze-Xr5JBxjvx1Wrbn1RsGHtbqY07MlLc_yHu73hzUFk47P1DlQPSYtGSp7RgG8StcZUQsVvTHG8RPjz5pBDq1EGqwMYFd3OX2aTBVfo5JRvzy-LfoYW1mLM6NDDl15pP2iZMBVJ4EWKXM9YJKDMdazQ8boDS292SYXxvP-yqXGW5BPy8pXTZCLzTHvu5gmiDGX2GSaJ--AK8UsxsYsHh3utenLM8xN2QNXqr1H2CImR6jj_N0opQ_2hv3yAtXCx3IdwY6fuP0sZGDeXOO3PzgJAa8zGTrdQXONVx3JdDFp6wrLjP37Cbxm68NMHmuLH3UOgVRPkwNvFRP7r_ISN-ONiKVnFRBL07hhOdxGEx6GkGpjqwxzqjNAC8meoUB_pBnOLTwbSt50f7DspOowRyUd0'}
+2023-02-16 03:06:29,120-Extend-INFO-reCAPTCHA picture done
+2023-02-16 03:06:43,554-Extend-INFO-续期结果:Your VPS has been renewed until February 23, 2023
+2023-02-16 03:06:43,554-Extend-INFO-renew succeed
+2023-02-16 03:06:45,847-Extend-INFO-Telebot push
+2023-02-16 03:06:46,065-Extend-INFO-Tencent push

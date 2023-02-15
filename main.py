@@ -22,9 +22,6 @@ import ibmAPI
 import tencentAPI
 import azureAPI
 import json
-from pydub import AudioSegment
-from urllib.request import urlopen, Request
-from bs4 import BeautifulSoup
 from aip import AipSpeech
 from commonlog import Logger
 from playwright.sync_api import Playwright, sync_playwright, expect
@@ -147,7 +144,6 @@ def fill_hax_bot_code(page):
     try:
         # 这句换貌似没有用，还是要手动跳转的
         page.get_by_role("link", name="INPUT RENEW CODE").click()
-        logger.info("点击了INPUT RENEW CODE按钮")
         adsClear(page)
         delay()
         # 这里需要手动跳转下，playwright不会自己跳转
@@ -388,7 +384,6 @@ def extend(page, tokenCode):
     logger.info("click Extend VPS")
     try:
         page.goto('https://' + origin_host + renew_path)
-        logger.info('续期地址为:' + 'https://' + origin_host + renew_path)
     except Exception as e:
         logger.error("renew_path Timeout")
         logger.error(e)
@@ -433,8 +428,6 @@ def extend(page, tokenCode):
 
     with page.expect_response(re.compile(r"renew-vps-process"), timeout=timeout) as result:
         page.query_selector("button[name=submit_button]").click()
-    logger.info("copy text")
-    # body = page.waitForSelector("#response/div").text()
     loadingIndex = 0
     body = ""
 
@@ -450,8 +443,7 @@ def extend(page, tokenCode):
                 return False
         else:
             break
-    ####################################
-    logger.info("bark push " + str(body))
+
     login = "log" in body
     
     if login:
@@ -494,13 +486,6 @@ def mp3_change_pcm(audioFile):
     ff.run()
     return outpath
 
-def transform_mp3_to_wav(mp3Path):
-    sound = AudioSegment.from_mp3(mp3Path)
-    wavPath = os.getcwd() + '/audio.wav' if '/' in os.getcwd() else os.getcwd() + '\\audio.wav'
-    sound.export(wavPath, format="wav")
-    return wavPath
-    
-
 def audioToText(audioFile, url):
     ASR_CHOICE = None
     try:
@@ -510,25 +495,16 @@ def audioToText(audioFile, url):
         return None
     try:
         if ASR_CHOICE == 'BAIDU':
-            APP_ID = asr_baidu_app_id
-            API_KEY = asr_baidu_api_key
-            SECRET_KEY = asr_baidu_secret_key
-            return baiduAPI(APP_ID, API_KEY, SECRET_KEY, mp3_change_pcm(audioFile))
+            return baiduAPI(asr_baidu_app_id, asr_baidu_api_key, asr_baidu_secret_key, mp3_change_pcm(audioFile))
 
         elif ASR_CHOICE == 'IBM':
-            IBM_URL = asr_ibm_url
-            IBM_KEY = asr_ibm_key
-            return ibmAPI.asr(IBM_KEY, IBM_URL, audioFile)
+            return ibmAPI.asr(asr_ibm_key, asr_ibm_url, audioFile)
 
         elif ASR_CHOICE == 'TENCENT':
-            SECRET_ID = asr_tencent_secret_id
-            SECRET_KEY = asr_tencent_secret_key
-            return tencentAPI.asr(SECRET_ID, SECRET_KEY, url)
+            return tencentAPI.asr(asr_tencent_secret_id, asr_tencent_secret_key, url)
         
         elif ASR_CHOICE == 'AZURE':
-            wavPath = transform_mp3_to_wav(audioFile)
-            delay()
-            return azureAPI.asr(asr_azure_key, asr_azure_region, wavPath)
+            return azureAPI.asr_mp3(asr_azure_key, asr_azure_region, audioFile)
         else :
             logger.warn("ASR_CHOICE setup error, skip ASR")
             return None
@@ -571,6 +547,11 @@ def twoCaptcha(page):
 def reCAPTCHA(page):
     openLoginUrl(page)
     try:
+        ###################################################
+        # 获取id="recaptcha-anchor"的span，判断其是否有recaptcha-checkbox-checked类样式，如果有，直接return True
+        checkbox_element = page.query_selector('#recaptcha-anchor')
+        if 'recaptcha-checkbox-checked' in checkbox_element.get_attribute('class'):
+            return True
         iframe = page.frame_locator("xpath=//iframe[starts-with(@src,'https://www.recaptcha.net/recaptcha/api2/bframe')]")
         iframe.locator("#recaptcha-audio-button").click(timeout=10000)
         # get the mp3 audio file  http协议的网络资源
@@ -627,6 +608,11 @@ def twoCaptcha2(page):
 
 def reCAPTCHA2(page):
     try:
+        ###################################################
+        # 获取id="recaptcha-anchor"的span，判断其是否有recaptcha-checkbox-checked类样式，如果有，直接return True
+        checkbox_element = page.query_selector('#recaptcha-anchor')
+        if 'recaptcha-checkbox-checked' in checkbox_element.get_attribute('class'):
+            return True
         iframe = page.frame_locator("xpath=//iframe[starts-with(@src,'https://www.recaptcha.net/recaptcha/api2/bframe')]")
         iframe.locator("#recaptcha-audio-button").click(timeout=10000)
         # get the mp3 audio file  http协议的网络资源
