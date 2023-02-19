@@ -29,7 +29,7 @@ from twocaptcha import TwoCaptcha
 import redis
 
 
-with open('config.json', 'r') as f:
+with open('config/config.json', 'r') as f:
     config = json.load(f)
 
 origin_host = config['origin_host']
@@ -119,9 +119,9 @@ def send(txt):
 
 ## 主函数 打开无头浏览器并执行js脚本
 def main(playwright: Playwright) -> None:
-    # browser = playwright.chromium.launch(channel="chrome", headless=False)
+    browser = playwright.chromium.launch(headless=True)
     # browser = playwright.firefox.launch(headless=True)
-    browser = playwright.webkit.launch(headless=False)
+    #browser = playwright.webkit.launch(headless=False)
     context = browser.new_context()
     context.set_default_timeout(timeout)
     # Open new page
