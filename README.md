@@ -55,10 +55,11 @@
 
 ### linux命令执行
 ```
- 1. pip3 install --no-cache-dir -r requirements.txt
- 2. playwright install --with-deps
- 1. 配置config/config.json
- 2. python3 main.json
+ 1. apt install ffmpeg -y 
+ 2. pip3 install --no-cache-dir -r requirements.txt
+ 3. playwright install --with-deps
+ 4. 配置config/config.json
+ 5. python3 main.json
 ```
 
 ### docker执行
