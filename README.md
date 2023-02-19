@@ -55,6 +55,8 @@
 
 ### linux命令执行
 ```
+ 1. pip3 install --no-cache-dir -r requirements.txt
+ 2. playwright install --with-deps
  1. 配置config/config.json
  2. python3 main.json
 ```
