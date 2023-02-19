@@ -66,7 +66,7 @@ cd woiden_extend_temp
 # 这里的config.json请自己补充内容
 touch config.json
 
-docker run -it \
+docker run -it --rm  \
     -v $PWD/:/app/config \
     --name woiden_extend_temp \
     mrzyang/woiden_extend:v230219

@@ -11,3 +11,4 @@ ibm_cloud_sdk_core
 tencentcloud-sdk-python
 azure-cognitiveservices-speech
 redis
+pydub

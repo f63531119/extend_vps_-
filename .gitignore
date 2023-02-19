@@ -160,3 +160,4 @@ cython_debug/
 #.idea/
 
 audio.mp3
+audio.wav

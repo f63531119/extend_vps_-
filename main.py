@@ -27,6 +27,7 @@ from commonlog import Logger
 from playwright.sync_api import Playwright, sync_playwright, expect
 from twocaptcha import TwoCaptcha
 import redis
+from pydub import AudioSegment
 
 
 with open('config/config.json', 'r') as f:
@@ -57,6 +58,8 @@ asr_azure_region = config['asr_azure']['region']
 
 twoCaptcha_api_key = config['twoCaptcha_api_key']
 
+print("将要自动续签的域名是：", origin_host)
+print("将要自动续签的telegramID是:", telegramID_of_hax_or_woiden)
 
 GITHUB = False
 # 用户信息
@@ -119,9 +122,9 @@ def send(txt):
 
 ## 主函数 打开无头浏览器并执行js脚本
 def main(playwright: Playwright) -> None:
-    browser = playwright.chromium.launch(headless=True)
-    # browser = playwright.firefox.launch(headless=True)
-    #browser = playwright.webkit.launch(headless=False)
+    #browser = playwright.chromium.launch(headless=True)
+    #browser = playwright.firefox.launch(headless=True)
+    browser = playwright.webkit.launch(headless=True)
     context = browser.new_context()
     context.set_default_timeout(timeout)
     # Open new page
@@ -486,6 +489,12 @@ def mp3_change_pcm(audioFile):
     ff.run()
     return outpath
 
+def transform_mp3_to_wav(mp3Path):
+    wavPath = os.getcwd() + '/audio.wav' if '/' in os.getcwd() else os.getcwd() + '\\audio.wav'
+    sound = AudioSegment.from_file(mp3Path, format="mp3")
+    sound.export(wavPath, format="wav")
+    return wavPath
+
 def audioToText(audioFile, url):
     ASR_CHOICE = None
     try:
@@ -504,7 +513,9 @@ def audioToText(audioFile, url):
             return tencentAPI.asr(asr_tencent_secret_id, asr_tencent_secret_key, url)
         
         elif ASR_CHOICE == 'AZURE':
-            return azureAPI.asr_mp3(asr_azure_key, asr_azure_region, audioFile)
+            wavPath = transform_mp3_to_wav(audioFile)
+            delay()
+            return azureAPI.asr_wav(asr_azure_key, asr_azure_region, wavPath)
         else :
             logger.warn("ASR_CHOICE setup error, skip ASR")
             return None
