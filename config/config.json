@@ -1,33 +1,33 @@
 {
-  "origin_host": "woiden.id",
-  "telegramID_of_hax_or_woiden": "5971007526",
-  "password_of_hax_or_woiden": "Zy@19961004",
-  "telegram_bot_token_to_send_result": "6035543560:AAFwjubLmjcOiObdkit1k3WZloOf2mCzZdo",
-  "telegramID_to_receive_result": "5971007526",
-  "pushplus_token_to_send_result": "e21cd7697aa142328a5c0d52fd58a6c1",
+  "origin_host": "",
+  "telegramID_of_hax_or_woiden": "",
+  "password_of_hax_or_woiden": "",
+  "telegram_bot_token_to_send_result": "",
+  "telegramID_to_receive_result": "",
+  "pushplus_token_to_send_result": "",
   "redis": {
-    "host": "redis-18806.c250.eu-central-1-1.ec2.cloud.redislabs.com",
-    "username": "default",
-    "password": "RFqDKRXheRrqDPz0if1oyeVkRTbllRTl",
-    "port": 18806
+    "host": "",
+    "username": "",
+    "password": "",
+    "port": ""
   },
-  "asr_choice": "AZURE",
+  "asr_choice": "",
   "asr_tencent": {
-    "secret_id": "AKIDnQp0zCCxUmrhJgqmTwWt1wd5JIH9qLvJ",
-    "secret_key": "EF2by72nJadS3PXSDk4A3iAOO9gyPcbv"
+    "secret_id": "",
+    "secret_key": ""
   },
   "asr_ibm": {
-    "ibm_url": "https://api.us-south.speech-to-text.watson.cloud.ibm.com/instances/7e2f69e7-a5e8-4d56-91ae-f4dc7b4a1f0b",
-    "ibm_key": "nblnZuv5E5A_wo5j9eYC-nQVWHKyY5HxJXuEPnNpJgrr"
+    "ibm_url": "",
+    "ibm_key": ""
   },
   "asr_baidu": {
-    "app_id": "30453656",
-    "api_key": "jubyDhWQZ6FVRXvk2rsiFYaW",
-    "secret_key": "ThFn2TyqzV4n9eIG6sOY9LnvDGgT2D0w"
+    "app_id": "",
+    "api_key": "",
+    "secret_key": ""
   },
   "asr_azure": {
-    "key": "b3ac840c1b24432a897c0f648078ceb8",
-    "region": "eastasia"
+    "key": "",
+    "region": ""
   },
-  "twoCaptcha_api_key": "8349b2ce253f6ddde3805089a26daafa"
+  "twoCaptcha_api_key": ""
 }
